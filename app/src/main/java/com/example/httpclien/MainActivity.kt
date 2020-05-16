@@ -3,6 +3,7 @@ package com.example.httpclien
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import java.net.HttpURLConnection
@@ -13,10 +14,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        var url = "http://mysafeinfo.com/api/data?list=presidents&format=json"
-
-        AsyncTaskHandleJson().execute(url)
     }
 
     inner class AsyncTaskHandleJson : AsyncTask<String, String, String>() {
@@ -61,5 +58,11 @@ class MainActivity : AppCompatActivity() {
 
         var adapter = ListAdapter(this, list)
         presidents_list.adapter = adapter
+    }
+
+    fun getData(view: View) {
+        var url = "http://mysafeinfo.com/api/data?list=presidents&format=json"
+
+        AsyncTaskHandleJson().execute(url)
     }
 }
