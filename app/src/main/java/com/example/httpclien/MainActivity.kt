@@ -65,4 +65,8 @@ class MainActivity : AppCompatActivity() {
 
         AsyncTaskHandleJson().execute(url)
     }
+
+    fun getView(view: View) {
+        setContentView(R.layout.view_layout)
+    }
 }
